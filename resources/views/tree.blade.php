@@ -26,7 +26,7 @@ $(document).ready(function () {
 
 #treeview .parent:before {
 	padding-left: 25px;
-	background: url({{asset('public/images/toggle-small-expand.png')}}) no-repeat;
+	background: url({{asset('images/toggle-small-expand.png')}}) no-repeat;
 	background-position: 0 top;
 	content: "";
 	height: 25px;
@@ -34,7 +34,7 @@ $(document).ready(function () {
 
 #treeview .close:before {
 	padding-left: 25px;
-	background: url({{asset('public/images/toggle-small.png')}}) no-repeat;
+	background: url({{asset('images/toggle-small.png')}}) no-repeat;
 	background-position: 0 top;
 	content: "";
 	height: 25px;
