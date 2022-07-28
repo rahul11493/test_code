@@ -9,7 +9,7 @@ class TestController extends Controller
 {
 		
     function index(){
-		$results = TreeEntry::get();		
+		$results = TreeEntry::with(['treeLang'])->get();		
 		return view('tree',compact('results'));	
     }		
 	

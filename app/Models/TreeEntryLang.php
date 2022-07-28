@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class TreeEntry extends Model
+class TreeEntryLang extends Model
 {
 	public $timestamps  = false;
-	protected $table = 'tree_entry';
+	protected $table = 'tree_entry_lang';
 
     /**
      * The attributes that are mass assignable.
@@ -18,11 +18,9 @@ class TreeEntry extends Model
      */
     protected $fillable = [
         'entry_id',
-        'parent_entry_id',
+        'lang',
+		'name',
     ];
 
-	public function treeLang(){
-		return $this->hasOne(TreeEntryLang::class,'entry_id','entry_id');
-	}		
  
 }

@@ -53,7 +53,7 @@ function print_list($array, $parent=0) {
 	echo "<ul id='treeview'>";
 	foreach ($array as $row) {
 		if ($row->parent_entry_id == $parent) {
-			echo "<li class='parent'>$row->entry_id";
+			echo "<li class='parent'>".$row->entry_id.'. '.$row->treeLang->name;
 			print_list($array, $row->entry_id); 
 			echo "</li>";
 	}   }
