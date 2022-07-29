@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 }); */
 
 Route::get('/','App\Http\Controllers\TestController@index');
+Route::post('/getChildTree','App\Http\Controllers\TestController@getChildTree')->name('getChildTree');
