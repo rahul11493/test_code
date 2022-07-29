@@ -39,7 +39,15 @@ $(document).on('click','#treeview2 .parent',function (e) {
 		success: function(result) {
 			if(result.status == "success"){
 				//console.log(result.data);
-				$('#child_'+''+entry_id).append(result.data);									
+				//$('#child_'+''+entry_id).append(result.data);	
+				
+				var dt = '<ul id="treeview2" style="display: block;">';
+				$.each(result.data, function(key, value) {
+					dt +='<li class="parent" id="child_'+value.entry_id+'" data-id="'+value.entry_id+'">'+value.entry_id+'. '+value.tree_lang.name+'</li>';
+				});
+				dt += '</ul>';
+				$('#child_'+''+entry_id).append(dt);
+				
 			}else{
 				alert(result.message);
 			}
@@ -113,7 +121,7 @@ $(document).on('click','#treeview2 .parent',function (e) {
 <body>
 
 <div>
-<h2>Simple Tree</h2>	
+<!--<h2>Simple Tree</h2>-->
 @php
 function print_list($array, $parent=0) {
 	echo "<ul id='treeview'>";
@@ -131,7 +139,7 @@ print_list($results);
 </div>
 
 <div>
-<h2>Ajax Tree</h2>	
+<!--<h2>Ajax Tree</h2>-->
 <ul id='treeview2'>
 @foreach($resultData as $result)
 	<li class="parent" id="child_{{$result->entry_id}}" data-id="{{$result->entry_id}}">

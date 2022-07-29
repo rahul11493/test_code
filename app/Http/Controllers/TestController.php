@@ -20,18 +20,23 @@ class TestController extends Controller
 		try{	
 			if($request->ajax()){				
 				if(!empty($request->entry_id)){
-					$resultData = TreeEntry::with(['treeLang'])->where('parent_entry_id',$request->entry_id)->where('parent_entry_id','!=',0)->get();
+					$resultData = TreeEntry::with(['treeLang'])
+					->where('parent_entry_id',$request->entry_id)
+					->where('parent_entry_id','!=',0)
+					->get();
 					
 					if($resultData){
+						/* 						
 						$data = '<ul id="treeview2" style="display: block;">';
 						foreach($resultData as $result){
 							$data .= '<li class="parent" id="child_'.$result->entry_id.'" data-id="'.$result->entry_id.'">';
 							$data .= $result->entry_id.'. '.$result->treeLang->name;
 							$data .= '</li>';
 						}	
-						$data .= '</ul>';	
+						$data .= '</ul>'; 
+						*/	
 						
-						return json_encode(array('status'=>'success','message'=>'success','data'=>$data));
+						return json_encode(array('status'=>'success','message'=>'success','data'=>$resultData));
 					}else{
 						return json_encode(array('status'=>'success','message'=>'success','data'=>''));
 					}	
